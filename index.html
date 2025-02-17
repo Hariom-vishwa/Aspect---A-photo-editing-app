@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect - A photo editing webapp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://ideogram.ai/assets/image/lossless/response/ZXiOCuthSBuUVdpdQKlbaQ"
+        type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="logo">Aspect </h1>
+        <div class="editorCont">
+            <div class="uploadCont">
+                <div class="previewImg">Img Preview</div>
+                <div class="imgInput">
+                    <!-- <input type="file" name="img" id="fileInput"> -->
+                    <button id="uploadBtn">Upload Photo</button>
+                </div>
+            </div>
+            <div class="optionsCont">
+                <h1>Editing Options</h1>
+                <div class="editingOptions">
+                    <div class="options">
+                        <span>Brightness : </span>
+                        <input id="brightness" type="number" min="-100" max="100" value="0">
+                    </div>
+                    <div class="options">
+                        <span>Contrast : </span>
+                        <input id="contrast" type="number" min="-100" max="100" value="0">
+                    </div>
+                    <div class="options">
+                        <span>Temperature : </span>
+                        <input id="temperature" type="number" min="0" max="100" value="0">
+                    </div>
+                    <div class="options">
+                        <span>Saturation : </span>
+                        <input id="saturation" type="number" min="-100" max="100" value="0">
+                    </div>
+                    <div class="options">
+                        <span>Hue : </span>
+                        <input id="hue" type="number" min="-100" max="100" value="0">
+                    </div>
+                </div>
+                <div class="btns">
+                    <button id="reset">
+                        Reset
+                    </button>
+                    <button id="downLoad">Download</button>
+                    <br>
+                    <button id="before">BEFORE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
