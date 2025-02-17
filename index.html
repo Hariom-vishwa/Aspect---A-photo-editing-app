@@ -17,8 +17,8 @@
             <div class="uploadCont">
                 <div class="previewImg">Img Preview</div>
                 <div class="imgInput">
-                    <!-- <input type="file" name="img" id="fileInput"> -->
-                    <button id="uploadBtn">Upload Photo</button>
+                    <input type="file" name="img" id="fileInput">
+                    <button id="uploadBtn" onclick="uploadFile()">Upload Photo</button>
                 </div>
             </div>
             <div class="optionsCont">
@@ -33,8 +33,8 @@
                         <input id="contrast" type="number" min="-100" max="100" value="0">
                     </div>
                     <div class="options">
-                        <span>Temperature : </span>
-                        <input id="temperature" type="number" min="0" max="100" value="0">
+                        <span>Sepia : </span>
+                        <input id="sepia" type="number" min="0" max="100" value="0">
                     </div>
                     <div class="options">
                         <span>Saturation : </span>
@@ -51,7 +51,7 @@
                     </button>
                     <button id="downLoad">Download</button>
                     <br>
-                    <button id="before">BEFORE</button>
+                    <button id="before" onclick="beforeImg()">BEFORE</button>
                 </div>
             </div>
         </div>
