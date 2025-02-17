@@ -14,31 +14,110 @@
   font-family: var(--sec-font);
   /* border: 1px solid var(--sec-col); */
   color: var(--sec-col);
+  transform: all ease 0.5s;
 }
 
 body {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--pri-col);
 }
 
+@media screen and (max-width: 450px) {
+  .logo {
+    font-size: 2rem;
+    position: relative;
+  }
+
+  .editorCont {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .uploadCont .previewImg {
+    width: 100vw;
+    height: 50vh;
+    position: sticky;
+    top: 0;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  button {
+    padding: 5px 0;
+    font-size: 10px;
+    border-radius: 5px;
+  }
+
+  .btns {
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .optionsCont .editingOptions{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+    .options,
+    .editingBtns {
+      margin: 2vw;
+      font-size: 0.8rem;
+    }
+}
+@media screen and (min-width: 1000px) {
+  .logo {
+    font-size: 50px;
+    margin: 50px 0 0 0;
+  }
+
+  .editorCont {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .uploadCont .previewImg {
+    width: 500px;
+    height: 500px;
+  }
+
+  .container {
+    width: 80%;
+    height: 80vh;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+
+  .btns {
+    width: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+  .options,
+  .editingBtns {
+    width: 300px;
+    margin: 20px 0;
+  }
+}
+
 .logo {
-  font-size: 50px;
   font-family: var(--pri-font);
-  margin: 50px 0 0 0;
   font-weight: 500;
-  background: -webkit-linear-gradient(135deg, var(--pri-col), var(--sec-col));
+  background: -webkit-linear-gradient(90deg, var(--pri-col), var(--sec-col));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .container {
-  width: 80%;
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,9 +126,7 @@ body {
 
 .editorCont {
   width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .editorCont,
@@ -58,7 +135,7 @@ body {
   place-items: center;
 }
 
-.uploadCont{
+.uploadCont {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -66,38 +143,50 @@ body {
   align-items: center;
 }
 
-.uploadCont .previewImg{
-  width: 500px;
-  height: 500px;
-  background-image: url("https://img.freepik.com/vecteurs-premium/vecteur-icone-image-par-defaut-page-image-manquante-pour-conception-site-web-application-mobile-aucune-photo-disponible_87543-11093.jpg");
+.uploadCont .previewImg {
+  background-color: #2B3948;
+  background-image: url("https://savethefrogs.com/wp-content/uploads/placeholder-image-blue-landscape.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   color: var(--pri-col);
 }
 
-button{
-  padding: 5px 20px;
-  font-size: 15px;
+#fileInput {
+  display: none;
+}
+
+button {
   font-weight: 500;
   background-color: var(--pri-col);
   color: var(--sec-col);
   border: 2px solid var(--sec-col);
   outline: none;
-  border-radius: 5px;
 }
 
 
-.options{
-  width: 100%;
-  margin: 20px 0;
+.options {
   display: flex;
   gap: 20px;
   justify-content: space-between;
   align-items: center;
 }
 
-.options input{
+.btns {
+  display: grid;
+}
+
+.btns button {
+  margin: 10px;
+}
+
+#downLoad {
+  background-color: var(--sec-col);
+  color: var(--pri-col);
+  /* font-size: 10px; */
+}
+
+.options input {
   width: 50px;
   border-radius: 3px;
   border: none;
@@ -105,4 +194,12 @@ button{
   padding: 3px 6px;
   background-color: var(--sec-col);
   color: var(--pri-col);
+}
+
+.editingBtns {
+  width: 300px;
+}
+
+.editingBtns button:hover {
+  border: var(--pri-col);
 }
