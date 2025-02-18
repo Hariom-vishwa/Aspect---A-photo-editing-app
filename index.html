@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="https://ideogram.ai/assets/image/lossless/response/ZXiOCuthSBuUVdpdQKlbaQ"
         type="image/x-icon">
-        <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -29,27 +26,27 @@
                 <div class="editingOptions">
                     <div class="options">
                         <span><i class="ri-sun-line"></i> Brightness : </span>
-                        <input id="brightness" type="number" min="-100" max="100" value="0">
+                        <input class="filter" id="brightness" type="number" min="0" max="200" value="100">
                     </div>
                     <div class="options">
                         <span><i class="ri-contrast-line"></i> Contrast : </span>
-                        <input id="contrast" type="number" min="-100" max="100" value="0">
+                        <input class="filter" id="contrast" type="number" min="0" max="200" value="100">
                     </div>
                     <div class="options">
                         <span>Saturation : </span>
-                        <input id="saturation" type="number" min="-100" max="100" value="0">
+                        <input class="filter" id="saturation" type="number" min="0" max="200" value="100">
                     </div>
                     <div class="options">
                         <span><i class="ri-shut-down-fill"></i> Hue : </span>
-                        <input id="hue" type="number" min="-100" max="100" value="0">
+                        <input class="filter" id="hue" type="number" min="-100" max="100" value="0">
                     </div>
                     <div class="options">
-                        <span><i class="ri-color-filter-line"></i>  Grayscale : </span>
-                        <input id="grayscale" type="number" min="-100" max="100" value="0">
+                        <span><i class="ri-color-filter-line"></i> Grayscale : </span>
+                        <input class="filter" id="grayscale" type="number" min="0" max="100" value="0">
                     </div>
                     <div class="options">
                         <span><i class="ri-drop-line"></i> Blur : </span>
-                        <input id="blur" type="number" min="-100" max="100" value="0">
+                        <input class="filter" id="blur" type="number" min="0" max="100" value="0">
                     </div>
                 </div>
                 <div class="editingBtns btns">
@@ -57,19 +54,19 @@
                     <button id="antiClockWise"><i class="ri-anticlockwise-2-line"></i></button>
                     <button id="flipVertical"><i class="ri-flip-vertical-line"></i></button>
                     <button id="flipHorizontal"><i class="ri-flip-horizontal-line"></i></button>
-            </div>
-            <div class="btns">
-                <button id="uploadBtn" onclick="uploadFile()"><i class="ri-upload-2-line"></i> </button>
-                <button id="reset">
-                    <i class="ri-refresh-line"></i>
-                    Reset
-                </button>
-                <button id="downLoad"><i class="ri-import-line" style="color: var(--pri-col);"></i> Download</button>
-                <button id="before" onclick="beforeImg()"><i class="ri-page-separator"></i> BEFORE</button>
+                </div>
+                <div class="btns">
+                    <button id="uploadBtn" onclick="uploadFile()"><i class="ri-upload-2-line"></i> </button>
+                    <button id="reset">
+                        <i class="ri-refresh-line"></i>
+                    </button>
+                    <button id="downLoad"><i class="ri-import-line" style="color: var(--pri-col);"></i>
+                        Download</button>
+                    <button id="before" onclick="beforeImg()"><i class="ri-page-separator"></i> BEFORE</button>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
