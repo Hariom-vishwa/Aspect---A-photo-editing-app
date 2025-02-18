@@ -77,16 +77,19 @@ body {
   }
 
   .editorCont {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    gap: 50px;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   .uploadCont .previewImg {
-    width: 500px;
-    height: 500px;
+    width: 45vw;
+    height: 45vw;
   }
 
   .container {
-    width: 80%;
+    width: 100%;
     height: 80vh;
   }
 
@@ -97,8 +100,12 @@ body {
   }
 
   .btns {
-    width: 500px;
+    width: 560px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .btns{
+
   }
   
   .options,
@@ -131,6 +138,10 @@ body {
 
 .editorCont,
 .optionsCont {
+  display: flex;
+}
+
+.optionsCont{
   display: grid;
   place-items: center;
 }
@@ -144,7 +155,6 @@ body {
 }
 
 .uploadCont .previewImg {
-  background-color: #2B3948;
   background-image: url("https://savethefrogs.com/wp-content/uploads/placeholder-image-blue-landscape.png");
   background-size: contain;
   background-position: center;
@@ -183,11 +193,10 @@ button {
 #downLoad {
   background-color: var(--sec-col);
   color: var(--pri-col);
-  /* font-size: 10px; */
 }
 
 .options input {
-  width: 50px;
+  width: 60px;
   border-radius: 3px;
   border: none;
   outline: none;
