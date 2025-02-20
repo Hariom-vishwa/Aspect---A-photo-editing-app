@@ -50,18 +50,22 @@
                     </div>
                 </div>
                 <div class="editingBtns btns">
-                    <button id="clockWise" onclick="rotateImg(clockWise)"><i class="ri-clockwise-line"></i></button>
-                    <button id="antiClockWise" onclick="rotateImg(antiClockWise)"><i class="ri-anticlockwise-2-line"></i></button>
-                    <button id="flipVertical" onclick="flipImg(flipVertical)"><i class="ri-flip-vertical-line"></i></button>
-                    <button id="flipHorizontal" onclick="flipImg(flipHorizontal)"><i class="ri-flip-horizontal-line"></i></button>
+                    <button id="clockWise" onclick="rotateClockwise()"><i class="ri-clockwise-line"></i></button>
+                    <button id="antiClockWise" onclick="rotateAntiClockwise()"><i class="ri-anticlockwise-2-line"></i></button>
+                    <button id="flipVertical" onclick="flipVertically()"><i class="ri-flip-vertical-line"></i></button>
+                    <button id="flipHorizontal" onclick="flipHorizontally()"><i class="ri-flip-horizontal-line"></i></button>
                 </div>
                 <div class="btns">
-                    <button id="uploadBtn" onclick="uploadFile()"><i class="ri-upload-2-line"></i> </button>
+                    <button id="uploadBtn" onclick="uploadFile()">
+                        <i class="ri-upload-2-line"></i>
+                    </button>
                     <button id="reset">
                         <i class="ri-refresh-line"></i>
                     </button>
-                    <button id="downLoad"><i class="ri-import-line" style="color: var(--pri-col);"></i>
-                        Download</button>
+                    <button id="downLoad">
+                        <i class="ri-import-line" style="color: var(--pri-col);"></i>
+                        Download
+                    </button>
                     <button id="before" onclick="beforeImg()"><i class="ri-page-separator"></i> BEFORE</button>
                 </div>
             </div>
