@@ -7,8 +7,9 @@ const fileInp = document.querySelector("#fileInput"),
   saturation = document.querySelector("#saturation"),
   hue = document.querySelector("#hue"),
   imgBlur = document.querySelector("#blur"),
-  filterInputs = document.querySelectorAll(".filter"),
-  rotation = 0,
+  filterInputs = document.querySelectorAll(".filter");
+
+let rotation = 0,
   flipHorizontal = 1,
   flipVertical = 1;
 
@@ -23,6 +24,7 @@ function uploadFile() {
       };
       imgReader.readAsDataURL(file);
     }
+    beforeImg()
   };
 }
 
@@ -38,33 +40,37 @@ function applyFilters() {
   const grayscaleVal = grayscale.value;
   const blurVal = imgBlur.value;
   previewImg.style.filter = `brightness(${brightnessVal}%) contrast(${contrastVal}%) saturate(${saturationVal}%) hue-rotate(${hueVal}deg) grayscale(${grayscaleVal}%) blur(${blurVal}px)`;
+  applyRotationFlip();
 }
 
-function rotateImg(direction) {
-  if (direction === "clockWise") {
-    rotation += 90;
-  } else if (direction === "antiClockWise") {
-    rotation -= 90;
-  }
-  applyRotationFlip()
+function rotateClockwise() {
+  rotation += 90;
+  applyRotationFlip();
 }
 
-function flipImg(direction) {
-  if (direction === "flipVertical") {
-    flipVertical *= -1;
-  } else if (direction === "flipHorizontal") {
-    flipHorizontal *= -1;
-  }
-  applyRotationFlip()
+function rotateAntiClockwise() {
+  rotation -= 90;
+  applyRotationFlip();
+}
+
+function flipVertically() {
+  flipVertical *= -1;
+  applyRotationFlip();
+}
+
+function flipHorizontally() {
+  flipHorizontal *= -1;
+  applyRotationFlip();
 }
 
 function applyRotationFlip() {
-  previewImg.style.transform = `rotate(${rotation}deg) scale(${flipVertical}, ${flipHorizontal})`;
+  previewImg.style.transform = `rotate(${rotation}deg) scale(${flipHorizontal}, ${flipVertical})`;
 }
 
 function beforeImg() {
   previewImg.style.filter = "none";
-  rotation = 0
-  flipHorizontal = 1
-  flipVertical = 1
+  rotation = 0;
+  flipHorizontal = 1;
+  flipVertical = 1;
+  applyRotationFlip();
 }
