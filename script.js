@@ -9,10 +9,6 @@ const fileInp = document.querySelector("#fileInput"),
   imgBlur = document.querySelector("#blur"),
   filterInputs = document.querySelectorAll(".filter");
 
-let rotation = 0,
-  flipHorizontal = 1,
-  flipVertical = 1;
-
 function uploadFile() {
   fileInp.click();
   fileInp.onchange = () => {
@@ -24,9 +20,11 @@ function uploadFile() {
       };
       imgReader.readAsDataURL(file);
     }
-    beforeImg()
+    beforeImg();
   };
 }
+
+// Filters
 
 filterInputs.forEach((input) => {
   input.addEventListener("input", applyFilters);
@@ -42,6 +40,12 @@ function applyFilters() {
   previewImg.style.filter = `brightness(${brightnessVal}%) contrast(${contrastVal}%) saturate(${saturationVal}%) hue-rotate(${hueVal}deg) grayscale(${grayscaleVal}%) blur(${blurVal}px)`;
   applyRotationFlip();
 }
+
+// Rotate and Flip Functionality
+
+let rotation = 0,
+  flipHorizontal = 1,
+  flipVertical = 1;
 
 function rotateClockwise() {
   rotation += 90;
@@ -67,10 +71,41 @@ function applyRotationFlip() {
   previewImg.style.transform = `rotate(${rotation}deg) scale(${flipHorizontal}, ${flipVertical})`;
 }
 
-function beforeImg() {
+// Before Filters
+
+function withoutSettings() {
   previewImg.style.filter = "none";
   rotation = 0;
   flipHorizontal = 1;
   flipVertical = 1;
   applyRotationFlip();
+}
+
+// Reset Filters
+
+function resetSettings() {
+  brightness.value = 100;
+  contrast.value = 100;
+  saturation.value = 100;
+  hue.value = 0;
+  grayscale.value = 0;
+  blur.value = 0;
+  rotation = 0;
+  flipHorizontal = 1;
+  flipVertical = 1;
+  applyFilters(); 
+}
+
+// Download image functionality
+
+const downloadBtn = document.querySelector("#downLoad")
+
+function downloadImg(){
+  const imgUrl = previewImg.style.backgroundImage.slice(5,-2);
+  if(!imgUrl) return alert("Please upload an image first!")
+
+    const downloadLink = document.createElement("a")
+    downloadLink.href = imgUrl;
+    downloadLink.download = "aspect-edited-img.jpg"
+    downloadLink.click()
 }
