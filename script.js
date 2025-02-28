@@ -9,6 +9,8 @@ const fileInp = document.querySelector("#fileInput"),
   imgBlur = document.querySelector("#blur"),
   filterInputs = document.querySelectorAll(".filter");
 
+let imageUploaded = false; // Track if an image is uploaded
+
 function uploadFile() {
   fileInp.click();
   fileInp.onchange = () => {
@@ -17,10 +19,10 @@ function uploadFile() {
       const imgReader = new FileReader();
       imgReader.onload = (e) => {
         previewImg.style.backgroundImage = `url(${e.target.result})`;
+        imageUploaded = true; // Mark as uploaded
       };
       imgReader.readAsDataURL(file);
     }
-    beforeImg();
   };
 }
 
@@ -31,6 +33,8 @@ filterInputs.forEach((input) => {
 });
 
 function applyFilters() {
+  if (!imageUploaded) return; // Prevent applying filters if no image is uploaded
+
   const brightnessVal = brightness.value;
   const contrastVal = contrast.value;
   const saturationVal = saturation.value;
@@ -48,32 +52,38 @@ let rotation = 0,
   flipVertical = 1;
 
 function rotateClockwise() {
+  if (!imageUploaded) return; // Prevent rotating without an image
   rotation += 90;
   applyRotationFlip();
 }
 
 function rotateAntiClockwise() {
+  if (!imageUploaded) return;
   rotation -= 90;
   applyRotationFlip();
 }
 
 function flipVertically() {
+  if (!imageUploaded) return;
   flipVertical *= -1;
   applyRotationFlip();
 }
 
 function flipHorizontally() {
+  if (!imageUploaded) return;
   flipHorizontal *= -1;
   applyRotationFlip();
 }
 
 function applyRotationFlip() {
+  if (!imageUploaded) return;
   previewImg.style.transform = `rotate(${rotation}deg) scale(${flipHorizontal}, ${flipVertical})`;
 }
 
 // Before Filters
 
 function withoutSettings() {
+  if (!imageUploaded) return;
   previewImg.style.filter = "none";
   rotation = 0;
   flipHorizontal = 1;
@@ -84,6 +94,7 @@ function withoutSettings() {
 // Reset Filters
 
 function resetSettings() {
+  if (!imageUploaded) return;
   brightness.value = 100;
   contrast.value = 100;
   saturation.value = 100;
@@ -93,19 +104,19 @@ function resetSettings() {
   rotation = 0;
   flipHorizontal = 1;
   flipVertical = 1;
-  applyFilters(); 
+  applyFilters();
 }
 
 // Download image functionality
 
-const downloadBtn = document.querySelector("#downLoad")
+const downloadBtn = document.querySelector("#downLoad");
 
-function downloadImg(){
-  const imgUrl = previewImg.style.backgroundImage.slice(5,-2);
-  if(!imgUrl) return alert("Please upload an image first!")
+function downloadImg() {
+  const imgUrl = previewImg.style.backgroundImage.slice(5, -2);
+  if (!imageUploaded) return alert("Please upload an image first!");
 
-    const downloadLink = document.createElement("a")
-    downloadLink.href = imgUrl;
-    downloadLink.download = "aspect-edited-img.jpg"
-    downloadLink.click()
+  const downloadLink = document.createElement("a");
+  downloadLink.href = imgUrl;
+  downloadLink.download = "aspect-edited-img.jpg";
+  downloadLink.click();
 }
