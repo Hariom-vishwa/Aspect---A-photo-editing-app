@@ -15,6 +15,7 @@
   /* border: 1px solid var(--sec-col); */
   color: var(--sec-col);
   transition: all ease 0.5s;
+  user-select: none;
 }
 
 body {
@@ -61,17 +62,50 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  .optionsCont .editingOptions{
+  .optionsCont .editingOptions {
     width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    padding: 3vw 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2vw;
+    /* border: 1px solid #fff; */
+    overflow-x: scroll;
   }
-  
-    .options,
-    .editingBtns {
-      margin: 2vw;
-      font-size: 0.8rem;
-    }
+
+  .options,
+  .editingBtns {
+    margin: 1vw;
+    font-size: 0.8rem;
+  }
+
+  .options{
+    padding: 0 5vw 0 0;
+    border-right: 7px ridge var(--sec-col);
+  }
+
+  .options span{
+    width: 25vw;
+  }
+
+  .options input {
+    width: 9vw;
+    border-radius: 3px;
+    padding: 0.5vw 1vw;
+  }
+
+  .filterAdjust {
+    display: flex;
+    gap: 2vw;
+  }
+
+  .filterAdjust button {
+    width: 9vw;
+    height: 6vw;
+    padding: 1vw;
+    display: grid;
+    place-items: center;
+  }
 }
 @media screen and (min-width: 1000px) {
   .logo {
@@ -105,14 +139,19 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  .btns{
-
+  .btns {
   }
-  
+
   .options,
   .editingBtns {
     width: 300px;
     margin: 20px 0;
+  }
+
+  .options input {
+    width: 60px;
+    border-radius: 3px;
+    padding: 3px 6px;
   }
 }
 
@@ -142,7 +181,7 @@ body {
   display: flex;
 }
 
-.optionsCont{
+.optionsCont {
   display: grid;
   place-items: center;
 }
@@ -175,10 +214,9 @@ button {
   outline: none;
 }
 
-
 .options {
   display: flex;
-  gap: 20px;
+  /* gap: 20px; */
   justify-content: space-between;
   align-items: center;
 }
@@ -197,11 +235,8 @@ button {
 }
 
 .options input {
-  width: 60px;
-  border-radius: 3px;
   border: none;
   outline: none;
-  padding: 3px 6px;
   background-color: var(--sec-col);
   color: var(--pri-col);
 }

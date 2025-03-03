@@ -26,27 +26,75 @@
                 <div class="editingOptions">
                     <div class="options">
                         <span><i class="ri-sun-line"></i> Brightness : </span>
-                        <input class="filter" id="brightness" type="number" min="0" max="200" value="100">
+                        <div class="filterAdjust">
+                            <input class="filter" readonly id="brightness" type="number" min="0" max="200" value="100">
+                            <button onclick="incBrightness()">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+                            <button onclick="decBrightness()">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="options">
                         <span><i class="ri-contrast-line"></i> Contrast : </span>
-                        <input class="filter" id="contrast" type="number" min="0" max="200" value="100">
+                        <div class="filterAdjust">
+                            <input class="filter" readonly id="contrast" type="number" min="0" max="200" value="100">
+                            <button onclick="incContrast()">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+                            <button onclick="decContrast()">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="options">
                         <span>Saturation : </span>
-                        <input class="filter" id="saturation" type="number" min="0" max="200" value="100">
+                        <div class="filterAdjust">
+                            <input class="filter" readonly id="saturation" type="number" min="0" max="200" value="100">
+                            <button onclick="incSaturation()">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+                            <button onclick="decSaturation()">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="options">
                         <span><i class="ri-shut-down-fill"></i> Hue : </span>
-                        <input class="filter" id="hue" type="number" min="-100" max="100" value="0">
+                        <div class="filterAdjust">
+                            <input class="filter" readonly id="hue" type="number" min="-100" max="100" value="0">
+                            <button onclick="incHue()">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+                            <button onclick="decHue()">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="options">
                         <span><i class="ri-color-filter-line"></i> Grayscale : </span>
-                        <input class="filter" id="grayscale" type="number" min="0" max="100" value="0">
+                        <div class="filterAdjust">
+                            <input class="filter" readonly id="grayscale" type="number" min="0" max="100" value="0">
+                            <button onclick="incGrayscale()">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+                            <button onclick="decGrayscale()">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="options">
                         <span><i class="ri-drop-line"></i> Blur : </span>
-                        <input class="filter" id="blur" type="number" min="0" max="100" value="0">
+                        <div class="filterAdjust">
+                            <input class="filter" readonly id="blur" type="number" min="0" max="10" value="0">
+                            <button onclick="incBlur()">
+                                <i class="ri-arrow-up-s-line"></i>
+                            </button>
+                            <button onclick="decBlur()">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="editingBtns btns">

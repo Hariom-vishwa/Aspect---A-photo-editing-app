@@ -32,16 +32,23 @@ filterInputs.forEach((input) => {
   input.addEventListener("input", applyFilters);
 });
 
-function applyFilters() {
-  if (!imageUploaded) return; // Prevent applying filters if no image is uploaded
+const brightnessVal = brightness.value;
+const contrastVal = contrast.value;
+const saturationVal = saturation.value;
+const hueVal = hue.value;
+const grayscaleVal = grayscale.value;
+const blurVal = imgBlur.value;
 
-  const brightnessVal = brightness.value;
-  const contrastVal = contrast.value;
-  const saturationVal = saturation.value;
-  const hueVal = hue.value;
-  const grayscaleVal = grayscale.value;
-  const blurVal = imgBlur.value;
-  previewImg.style.filter = `brightness(${brightnessVal}%) contrast(${contrastVal}%) saturate(${saturationVal}%) hue-rotate(${hueVal}deg) grayscale(${grayscaleVal}%) blur(${blurVal}px)`;
+// function applyFilters() {
+//   if (!imageUploaded) return;
+//   previewImg.style.filter = `brightness(${brightnessVal}%) contrast(${contrastVal}%) saturate(${saturationVal}%) hue-rotate(${hueVal}deg) grayscale(${grayscaleVal}%) blur(${blurVal}px)`;
+//   applyRotationFlip();
+// }
+
+
+function applyFilters() {
+  if (!imageUploaded) return;
+  previewImg.style.filter = `brightness(${brightness.value}%) contrast(${contrast.value}%) saturate(${saturation.value}%) hue-rotate(${hue.value}deg) grayscale(${grayscale.value}%) blur(${imgBlur.value}px)`;
   applyRotationFlip();
 }
 
@@ -80,6 +87,70 @@ function applyRotationFlip() {
   previewImg.style.transform = `rotate(${rotation}deg) scale(${flipHorizontal}, ${flipVertical})`;
 }
 
+// Increase and decrease value
+
+function incBrightness() {
+  brightness.value = Math.min(parseInt(brightness.value) + 1, 200);
+  applyFilters();
+}
+
+function decBrightness() {
+  brightness.value = Math.max(parseInt(brightness.value) - 1, 0);
+  applyFilters();
+}
+
+function incContrast() {
+  contrast.value = Math.min(parseInt(contrast.value) + 1, 200);
+  applyFilters();
+}
+
+function decContrast() {
+  contrast.value = Math.max(parseInt(contrast.value) - 1, 0);
+  applyFilters();
+}
+
+function incSaturation() {
+  saturation.value = Math.min(parseInt(saturation.value) + 1, 200);
+  applyFilters();
+}
+
+function decSaturation() {
+  saturation.value = Math.max(parseInt(saturation.value) - 1, 0);
+  applyFilters();
+}
+
+function incHue() {
+  hue.value = Math.min(parseInt(hue.value) + 1, 100);
+  applyFilters();
+}
+
+function decHue() {
+  hue.value = Math.max(parseInt(hue.value) - 1, -100);
+  applyFilters();
+}
+
+function incGrayscale() {
+  grayscale.value = Math.min(parseInt(grayscale.value) + 1, 100);
+  applyFilters();
+}
+
+function decGrayscale() {
+  grayscale.value = Math.max(parseInt(grayscale.value) - 1, 0);
+  applyFilters();
+}
+
+function incBlur() {
+  imgBlur.value = Math.min(parseInt(imgBlur.value) + 1, 10);
+  applyFilters();
+}
+
+function decBlur() {
+  imgBlur.value = Math.max(parseInt(imgBlur.value) - 1, 0);
+  applyFilters();
+}
+
+
+
 // Before Filters
 
 function withoutSettings() {
@@ -100,7 +171,7 @@ function resetSettings() {
   saturation.value = 100;
   hue.value = 0;
   grayscale.value = 0;
-  blur.value = 0;
+  imgBlur.value = 0;
   rotation = 0;
   flipHorizontal = 1;
   flipVertical = 1;
